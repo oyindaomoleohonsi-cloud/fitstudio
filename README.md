@@ -13,4 +13,7 @@ cp .env.example .env
 ```
 
 ## Phases
-See `IMPLEMENTATION_PLAN.md` Rev 4. Executing one phase at a time. Phase 0 (this commit): ADR + compose + CI + sizing lib + design tokens.
+See `IMPLEMENTATION_PLAN.md` Rev 4. Executing one phase at a time. Phase 0 (arch lock, ADR, compose, CI, sizing lib, scaffold) is DONE and merged.
+
+## Next planned phase of work: Phase 1 — Design System + UX Shell finalization
+Finalize tokens (`apps/web/components/design-system/tokens.css`), library (`components.tsx`: AnnouncementBar, Hero, ProductCard, SizeBadge, FitMeter, TryOnViewer), shop + `/admin` shells, inclusive copy, AA focus states. Preview: open `design-studio.html` or run `cd apps/web && npm install && npm run dev` → `/design`. Exit: `/design` renders + Lighthouse a11y ≥95. After that: Phase 2 (Neon + BetterAuth wiring).
