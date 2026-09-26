@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>FitStudio Design Studio — Vibrant Fashion</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--accent:#E6007A;--accent2:#FF5A1F;--plum:#2A1245;--gold:#FFC531}
+body{font-family:"Plus Jakarta Sans",ui-sans-serif,system-ui;background:#FFF7F2;color:#1C1025}
+.grad{background:linear-gradient(135deg,#E6007A,#FF5A1F)}
+.btn{border-radius:999px;padding:12px 22px;font-weight:800}
+.btn-w{background:#fff;color:#2A1245}.btn-p{background:linear-gradient(135deg,#E6007A,#FF5A1F);color:#fff;box-shadow:0 8px 24px rgba(230,0,122,.35)}
+.card{background:#fff;border:1px solid #F1D9E4;border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(42,18,69,.06)}
+.pill{display:inline-block;padding:6px 12px;border-radius:999px;background:#FFF0F6;border:1px solid #F1D9E4;font-size:13px;font-weight:700;margin:2px}
+.pill-hot{background:#2A1245;color:#fff;border-color:#2A1245}
+.good{color:#0E9F6E;font-weight:800}.snug{color:#C2410C;font-weight:800}.loose{color:#1D4ED8;font-weight:800}
+:focus-visible{outline:3px solid #FF5A1F;outline-offset:2px}
+.marquee{white-space:nowrap;overflow:hidden}.marquee span{display:inline-block;padding-right:48px;animation:slide 18s linear infinite}@keyframes slide{to{transform:translateX(-50%)}}
+</style></head>
+<body>
+<div class="text-center text-sm font-extrabold py-2" style="background:#2A1245;color:#FFC531">NEW DROP · INCLUSIVE 2–40 + M-L OVERLAP · LIVE TRY-ON — NEVER STORED 🔒</div>
+<nav class="max-w-6xl mx-auto flex items-center justify-between p-4">
+<div class="text-xl font-black">Fit<span style="color:#E6007A">Studio</span> ✨</div>
+<div class="hidden md:flex gap-6 text-sm font-bold"><a href="#">Shop</a><a href="#">Size Guide 2–40</a><a href="#">Try-On</a><a href="#">Admin</a></div>
+<button class="btn btn-p text-sm">Find my size</button></nav>
+
+<header class="max-w-6xl mx-auto p-4"><div class="grad rounded-3xl p-8 md:p-12 text-white grid md:grid-cols-2 gap-6">
+<div><p class="pill" style="background:rgba(255,255,255,.2);border-color:transparent;color:#fff">✨ AI FITTING · ALL BODIES 2–40</p>
+<h1 class="text-4xl md:text-5xl font-black leading-tight mt-3">Wear it before<br/>you buy it.</h1>
+<p class="mt-3 text-white/90">Overlap sizes XXS-XS → XXXL-XXXXL. Live preview never stored — save only what you approve.</p>
+<div class="mt-5 flex gap-3"><button class="btn btn-w">Find my size</button><button class="btn" style="border:2px solid #fff;color:#fff">🔒 Live try-on</button></div>
+<div class="mt-4 text-sm">UK 12 · EU 42 · M-L <span style="color:#FFC531">★ 4.9 fit accuracy</span></div></div>
+<div class="grid grid-cols-2 gap-3">
+<div class="card text-center text-6xl">👗<div class="text-sm font-bold mt-2">Bodycon · M-L · ₦18,500</div></div>
+<div class="card text-center text-6xl">👚<div class="text-sm font-bold mt-2">Wrap top · S · ₦9,800</div></div>
+<div class="card text-center text-6xl">👖<div class="text-sm font-bold mt-2">Wide-leg · L-XL · ₦14,200</div></div>
+<div class="card text-center text-6xl">👙<div class="text-sm font-bold mt-2">Knit · 12 · ₦21,000</div></div></div>
+</div></header>
+
+<div class="marquee py-2 font-extrabold" style="background:#FFC531"> <span>XXS-XS · XS · S · S-M · M · M-L · L · L-XL · XL-XXL · XXL · XXL-XXXL · XXXL · XXXL-XXXXL · SIZES 2–40 · PETITE · TALL · PLUS · XXS-XS · XS · S · S-M · M · M-L · L · L-XL · XL-XXL · XXL · XXL-XXXL · XXXL · XXXL-XXXXL ·</span></div>
+
+<main class="max-w-6xl mx-auto p-4 space-y-4">
+<section class="card"><h2 class="font-extrabold">Shop by size</h2>
+<div class="mt-2"><span class="pill">XXS-XS</span><span class="pill">XS</span><span class="pill pill-hot">S-M</span><span class="pill">M</span><span class="pill pill-hot">M-L</span><span class="pill">L</span><span class="pill">L-XL</span><span class="pill">12</span><span class="pill">14</span><span class="pill">40</span></div>
+<div class="mt-2 text-sm">Converter: <input id="us" type="number" value="12" class="border rounded p-1 w-20" aria-label="US size"/> → <b id="out">UK 14 · EU 42</b></div></section>
+
+<section><h2 class="font-extrabold text-lg mb-2">Trending now 🔥</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="card"><div class="text-5xl text-center">👗</div><b>Bodycon Dress</b><div style="color:#E6007A;font-weight:800">₦18,500</div><span class="pill pill-hot">M-L · Good</span><span class="pill">L · Relaxed</span></div>
+<div class="card"><div class="text-5xl text-center">👚</div><b>Wrap Top</b><div style="color:#E6007A;font-weight:800">₦9,800</div><span class="pill">S · Good</span><span class="pill">S-M · Fitted</span></div>
+<div class="card"><div class="text-5xl text-center">👖</div><b>Wide-Leg</b><div style="color:#E6007A;font-weight:800">₦14,200</div><span class="pill">L-XL · Good</span></div>
+<div class="card"><div class="text-5xl text-center">🧥</div><b>Trench</b><div style="color:#E6007A;font-weight:800">₦32,000</div><span class="pill">XXL · Comfortable</span></div></div></section>
+
+<section class="card grid md:grid-cols-2 gap-4 items-center">
+<div><h3 class="font-extrabold text-lg">FitMeter — measurement-based, never guesswork</h3>
+<div class="mt-1"><b>Bust:</b> <span class="good">● Good</span> · <b>Waist:</b> <span class="snug">● Slightly fitted</span> · <b>Hips:</b> <span class="loose">● Comfortable</span></div>
+<p class="text-sm text-stone-600 mt-1">Visual try-on shows look. Fit prediction shows physics. Both labeled separately.</p></div>
+<div class="grad rounded-2xl p-5 text-white"><b>🔒 Live preview — not stored.</b><div class="h-28 rounded-xl mt-2 flex items-center justify-center" style="background:rgba(255,255,255,.2)">✨ TRY-ON STREAM · no-store ✨</div>
+<div class="mt-2 flex gap-2"><button class="btn btn-w text-sm">Save (opt-in)</button><button class="btn text-sm" style="border:2px solid #fff;color:#fff">Delete</button></div></div></section>
+
+<section class="rounded-2xl p-5 text-white flex flex-wrap gap-3 items-center justify-between" style="background:#2A1245"><b>Paystack checkout · cards / bank / USSD / mobile-money · BetterAuth + Neon + R2</b><button class="btn" style="background:#FFC531">Checkout demo</button></section>
+</main>
+<footer class="max-w-6xl mx-auto p-4 text-xs text-stone-500">FitStudio Rev 4 · vibrant fashion system · Next.js page: <code>apps/web/app/design/page.tsx</code></footer>
+<script>const us=document.getElementById('us'),out=document.getElementById('out');us.addEventListener('input',()=>{const n=+us.value||0;out.textContent=`UK ${n+2} · EU ${n+30}`;});</script>
+</body></html>

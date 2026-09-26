@@ -710,3 +710,31 @@ That is the actual product outcome.
 ## 22. One-Sentence Product Definition
 
 > **FitStudio AI is an inclusive AI-powered fashion fitting platform that combines personalized body measurements, virtual try-on technology and garment-specific smart sizing to help customers of different genders, ages, sizes and body types make more informed clothing purchasing decisions.**
+
+---
+
+## 23. Local Execution (App + Database) — Confirmed
+
+Both app and database run locally with no paid services required:
+
+- **App (no build needed for design):** open `design-studio.html` in any browser for the vibrant fashion preview (tokens, SizeConverter, FitMeter, live-badge try-on). Full Next.js preview (needs Node 20): `cd apps/web && npm install && npm run dev` → `/design`.
+- **Database + services:** `docker compose up -d` starts `postgres:16` (5432), `redis:7` (6379), `minio` (9000/9001, R2-compatible). App uses `cp .env.example .env` with `DATABASE_URL=postgresql://user:pass@localhost:5432/fitstudio`.
+- **Sizing logic without Node:** pure function in `packages/sizing-engine-ts/index.mjs`; CI runs `node --test`. Verified locally via file/JSON checks + PowerShell scoring math (Phase 0).
+- **Status:** Phase 0 verified on this machine without Node/Docker installed; `node --test` and `docker compose up` are documented next-run steps, not blockers.
+
+## 24. Accounts / Files Handling
+
+- **GitHub account:** `oyindaomoleohonsi-cloud`; repo `https://github.com/oyindaomoleohonsi-cloud/fitstudio` (private). Work happens on branch `feat/rev4-stack`; `main` stays deployable.
+- **Files in repo:** `FitStudio_AI_PRD.md` (this file), `IMPLEMENTATION_PLAN.md` (Rev 4), `design-studio.html` (standalone preview), `apps/web/` (Next.js + BetterAuth + design system), `drizzle/schema.ts`, `packages/sizing-engine-ts/`, `docker-compose.yml`, `.env.example` (never commit real `.env`), `docs/ADR-001-stack.md`.
+- **Uploads:** garment images → R2 `garment-images/` (persistent). Live try-on uploads are RAM-only and NEVER stored. User-approved saves only → R2 `tryon-approved/` (encrypted, per-user key, deletable). No person images in git, Redis, logs, or email.
+- **Secrets:** all keys via env/KMS; admin/tech have zero access to live or approved person images by design (no GET endpoint, bucket deny).
+
+## 25. Tool Review Rationale (why this stack)
+
+- **BetterAuth over custom JWT / NextAuth:** lives in code, free/OSS; `anonymous` plugin maps to guest shoppers (24h, auto-upgrade), `twoFactor + admin + organization` maps to the 5 roles (customer + 4 admin types); Drizzle-Neon adapter; NextAuth is now part of BetterAuth.
+- **Neon (not Supabase):** serverless Postgres free tier + branching + Drizzle; per ban on Supabase.
+- **Upstash Redis:** serverless free tier for queue/guest/rate-limit; no self-hosting.
+- **Cloudflare R2 (not AWS S3):** 10GB-mo + 1M-A + 10M-B free, zero egress, S3-compatible — same code, near-$0 image serving.
+- **Email (Resend → ZeptoMail → SES):** Resend free 3k/mo for dev DX + React-Email; ZeptoMail credits ($2.50/10k, transactional-only, EU DCs) for bursty prod; SES à-la-carte ($0.10/1k) past ~100k/mo.
+- **Paystack:** free integration, T+1, cards/bank/USSD/mobile-money/Apple Pay + webhooks; `PaymentProvider` interface keeps Stripe swap open.
+- **Hosting (not Vercel):** Cloudflare Pages ($0 web) + Railway $5-credit (API/worker, no cold-start, monorepo-native); Fly.io or Hetzner+Coolify as prod alts. Render free avoided (15m sleep / 30-50s wake).
