@@ -724,7 +724,7 @@ Both app and database run locally with no paid services required:
 
 ## 24. Accounts / Files Handling
 
-- **GitHub account:** `oyindaomoleohonsi-cloud`; repo `https://github.com/oyindaomoleohonsi-cloud/fitstudio` (private). Work happens on branch `feat/rev4-stack`; `main` stays deployable.
+- **GitHub account:** `oyindaomoleohonsi-cloud`; repo `https://github.com/oyindaomoleohonsi-cloud/fitstudio` (public). Work happens on branch `feat/rev4-stack`; `main` stays deployable.
 - **Files in repo:** `FitStudio_AI_PRD.md` (this file), `IMPLEMENTATION_PLAN.md` (Rev 4), `design-studio.html` (standalone preview), `apps/web/` (Next.js + BetterAuth + design system), `drizzle/schema.ts`, `packages/sizing-engine-ts/`, `docker-compose.yml`, `.env.example` (never commit real `.env`), `docs/ADR-001-stack.md`.
 - **Uploads:** garment images → R2 `garment-images/` (persistent). Live try-on uploads are RAM-only and NEVER stored. User-approved saves only → R2 `tryon-approved/` (encrypted, per-user key, deletable). No person images in git, Redis, logs, or email.
 - **Secrets:** all keys via env/KMS; admin/tech have zero access to live or approved person images by design (no GET endpoint, bucket deny).
