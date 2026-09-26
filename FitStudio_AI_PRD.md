@@ -738,3 +738,13 @@ Both app and database run locally with no paid services required:
 - **Email (Resend → ZeptoMail → SES):** Resend free 3k/mo for dev DX + React-Email; ZeptoMail credits ($2.50/10k, transactional-only, EU DCs) for bursty prod; SES à-la-carte ($0.10/1k) past ~100k/mo.
 - **Paystack:** free integration, T+1, cards/bank/USSD/mobile-money/Apple Pay + webhooks; `PaymentProvider` interface keeps Stripe swap open.
 - **Hosting (not Vercel):** Cloudflare Pages ($0 web) + Railway $5-credit (API/worker, no cold-start, monorepo-native); Fly.io or Hetzner+Coolify as prod alts. Render free avoided (15m sleep / 30-50s wake).
+
+---
+
+## 26. Design Improvement Note (requested upgrade — vibrant fashion UI)
+
+Per explicit request, the design system was upgraded from neutral beige to a **vibrant fashion-website UI**:
+
+- Palette: raspberry `#E6007A` → tangerine `#FF5A1F` gradient hero, deep plum + gold accents on warm `#FFF7F2`; pill buttons, product cards with prices, size marquee, lookbook-style grid — mimicking ASOS/Zara/Shein patterns (announcement bar, nav, hero, trending grid, fit-finder band, footer).
+- Preview file: `design-studio.html` (committed, standalone, no build) contains **styled gradient/pill buttons (6) + input field (US-size converter) + select-equivalent region display**, FitMeter, and the ephemeral live-badge try-on panel. Next.js mirror: `apps/web/app/design/page.tsx`; tokens: `apps/web/components/design-system/tokens.css`.
+- Accessibility kept: visible focus rings, text labels alongside color in FitMeter, keyboard-operable controls.
