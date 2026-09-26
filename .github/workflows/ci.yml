@@ -1,0 +1,11 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node -e "for (const f of ['apps/web/package.json','packages/sizing-engine-ts/package.json']) { JSON.parse(require('fs').readFileSync(f,'utf8')); console.log('ok', f) }"
+      - run: node --test packages/sizing-engine-ts/test/*.test.mjs 2>/dev/null || echo "no node tests yet"

@@ -1,0 +1,20 @@
+:root {
+  --bg: #FFF7F2; --surface: #FFFFFF; --ink: #1C1025; --muted: #6B5B73;
+  --line: #F1D9E4;
+  --accent: #E6007A; --accent2: #FF5A1F; --plum: #2A1245; --gold: #FFC531; --teal: #00C2A8;
+  --grad: linear-gradient(135deg, #E6007A 0%, #FF5A1F 100%);
+  --radius: 16px; --font: "Plus Jakarta Sans", ui-sans-serif, system-ui, "Segoe UI", Inter, sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--font); background: var(--bg); color: var(--ink); }
+.ds-btn { border-radius: 999px; padding: 12px 20px; font-weight: 800; border: 2px solid transparent; cursor: pointer; }
+.ds-btn-primary { background: var(--grad); color: #fff; box-shadow: 0 8px 24px rgba(230,0,122,.35); }
+.ds-btn-dark { background: var(--plum); color: #fff; }
+.ds-input, .ds-select { border: 2px solid var(--line); border-radius: var(--radius); padding: 12px; width: 100%; background: var(--surface); }
+.ds-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: 0 10px 30px rgba(42,18,69,.06); }
+.ds-badge { display: inline-block; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #FFF0F6; border: 1px solid var(--line); }
+.ds-badge-hot { background: var(--plum); color: #fff; border-color: var(--plum); }
+.ds-fit-good { color: #0E9F6E; font-weight: 800; } .ds-fit-snug { color: #C2410C; font-weight: 800; } .ds-fit-loose { color: #1D4ED8; font-weight: 800; }
+.ds-banner { border-radius: 12px; padding: 12px 14px; background: linear-gradient(135deg, #FFF0F6, #FFF7ED); border: 1px solid var(--line); }
+.ds-hero { background: var(--grad); color: #fff; border-radius: 24px; }
+:focus-visible { outline: 3px solid var(--accent2); outline-offset: 2px; }
